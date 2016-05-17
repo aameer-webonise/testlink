@@ -171,7 +171,8 @@
     {/if}
 
 	
-      <a href="lib/automation/automate.php" id="mylink">Trigger Automation</a>
+      <a href="lib/automation/automate.php" id="mylink">Trigger Automation</a><br/>
+	<a href="lib/automation/triger_automation.html" id="mylink">Create XML</a>
     </div>
   {/if}
 
