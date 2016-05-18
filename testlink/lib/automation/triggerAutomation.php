@@ -2,6 +2,7 @@
 require 'PHPMailer-master/PHPMailerAutoload.php';
 
 $projectName=$_POST['projectName'];
+$projectPrefix=$_POST['project_prefix'];
 $mail = new PHPMailer;
 $mail->isSMTP();
 $mail->SMTPSecure = 'ssl';
@@ -13,11 +14,11 @@ $mail->Password = 'weboqa6186';
 $mail->setFrom('aameer.ausekar@gmail.com');
 $mail->addAddress('email@weboapps.com');
 //$mail->addAddress('ausekar9@gmail.com');
-$mail->Subject = 'Trigger RP';
-//$mail->Body = 'automation for RP by aameer';
+$mail->Subject = 'Trigger '.$projectPrefix;
+$mail->Body = 'Trigger Automation of Project '.$projectName;
 if (!$mail->send()) {
     echo "ERROR: " . $mail->ErrorInfo;
 } else {
-    echo "Your Automation will start in 10 minutes";
+    echo "Your Automation will start in 5 minutes";
 }
 ?>

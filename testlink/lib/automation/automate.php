@@ -12,6 +12,11 @@ $args = init_args();
 $projectName= $args->tproject_name;
 $tproject_id= $args->tproject_id;
 
+$sql='select prefix from testprojects where id='.$tproject_id;
+$result=$db->exec_query($sql);
+$myrow = $db->fetch_array($result);
+$project_prefix=$myrow['prefix'];
+
 $sql='select id, name from nodes_hierarchy where node_type_id=2 and parent_id='.$tproject_id;
 $result = $db->exec_query($sql);
 $tree='<div><ul>';
@@ -45,7 +50,7 @@ $tree.='</ul></div>';
 //$keywords='#'.$projectName.'#Trigger#Automation';
 
 $body='<body><form action="triggerAutomation.php" method="post"> <input type="text" name="projectName" value="'.$projectName.'">';
-$body.='<input type="submit" value="Start Project Automation"><br/>'.$tree.'</form></body></html>';
+$body.='<input type="hidden" value="'.$project_prefix.'" name="project_prefix"><input type="submit" value="Start Project Automation"><br/>'.$tree.'</form></body></html>';
 
 $script='<html><head><script src="/testlink/third_party/jquery/jquery-2.0.3.min.js"></script>
 <script>
