@@ -3,6 +3,15 @@ require 'PHPMailer-master/PHPMailerAutoload.php';
 
 $projectName=$_POST['projectName'];
 $projectPrefix=$_POST['project_prefix'];
+$browserList=$_POST['browser_list'];
+$area=$_POST['areaSelector'];
+echo $projectName.'--->'.$projectPrefix;
+echo '<br/>'.$browserList;
+echo '<br/>'.$area.'<br/>';
+$ids= $_POST['id'];
+print_r($ids);
+
+exit();
 $mail = new PHPMailer;
 $mail->isSMTP();
 $mail->SMTPSecure = 'ssl';
